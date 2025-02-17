@@ -1,0 +1,13 @@
+클라우드 종류 *외워두기*
+
+Paas>Platform as a service
+애플리케이션 개발, 실행, 관리에 필요한 플랫폼을 제공하는 서비스
+
+Saas>software as a service
+이미 구축된 소프트웨어에 사용료를 지불하면서 이용
+ex)구글 드라이브, 네이버 마이박스, 구글 스프레드시트
+
+Iaas>Infrastrictre as a service
+가상 서버, 스토리지(저장소), IT 인프라를 제공하는 서비스
+EC2(가상 컴퓨터)-운영체제는 본인이 깔아야함
+
