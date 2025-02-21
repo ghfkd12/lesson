@@ -9,9 +9,18 @@ HTML을 통해 웹 페이지를 제작
 이론상 모든 언어에는 설명서가 존재 > 독학가능(이론상)
 
 언어      프레임워크
+
 java    > spring
 pytonh  > Django, Flask
 js      > Express.js
 ruby    > jekyll
 
 컨트롤+/ 입력시 주석 
+
+UI설계
+
+화면정의서 작성법
+왼쪽에 홈페이지의 화면을 캡쳐해 넣거나 그린다.
+오른쪽에 디스크립션(description)을 넣는다.
+- 디스크립션에는 홈페이지 동작의 설명을 넣는다
+
