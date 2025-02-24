@@ -4,11 +4,15 @@
 
 # CSS 적용방식
 1. 인라인방식(태그에 직접 적용)
-'''
  <h2 style="color:red">인라인적용</h2> 
 
-'''
- 
+2. 내장(embedded) 방식
+
+3. 링크 방식 - 외부의 CSS파일을 불러와서 적용
+ <link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'>
+
+4. import 방식
+ @import url(css/style.css);
 
 # 태그를 직접 선택
 ## 문서에 해당 태그의 디자인이 전부다 바뀜
