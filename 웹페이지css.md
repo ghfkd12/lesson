@@ -1,5 +1,6 @@
 # css 기본 문법
 셀렉터=선택자 (selector) : 태그, 클래스명, id
+
 <img width="670" alt="Image" src="https://github.com/user-attachments/assets/fab07437-f8c7-4e2b-94da-dd66d69abc90" />
 
 # CSS 적용방식
