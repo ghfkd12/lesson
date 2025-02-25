@@ -10,14 +10,14 @@ CSS를 HTML파일에 어떻게 적용시키냐
    >인라인으로 쓰는것이 우선순위가 가장 높음
 예시) h2 style="color:red">인라인적용/h2>
 
-2. style태그를통해 적용(내장(embedded) 방식
+2. style태그를통해 적용(내장(embedded) 방식<br>
 예시) head><br>
           <p>style>
    
           /style><p>
       /head><br>
       
-4. 링크 방식 - 외부의 CSS파일을 불러와서 적용
+4. 링크 방식 - 외부의 CSS파일을 불러와서 적용<br>
  head><br>
     link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'><br>
  /head><br>
