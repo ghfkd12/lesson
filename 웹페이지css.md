@@ -8,14 +8,20 @@ CSS를 HTML파일에 어떻게 적용시키냐
 
 1. 인라인방식(태그에 직접 적용)
    >인라인으로 쓰는것이 우선순위가 가장 높음
- <h2 style="color:red">인라인적용</h2> 
+예시) h2 style="color:red">인라인적용/h2>
 
-2. 내장(embedded) 방식
+2. style태그를통해 적용(내장(embedded) 방식
+예시) head>
+          style>
 
+          /style>
+      /head>
 3. 링크 방식 - 외부의 CSS파일을 불러와서 적용
- <link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'>
+ head>
+    link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'>
+ /head>
 
-4. import 방식
+5. import 방식
  @import url(css/style.css);
 
 # 태그를 직접 선택
@@ -30,4 +36,9 @@ CSS를 HTML파일에 어떻게 적용시키냐
 
 2-2. 클래스를 붙인 태그를 선택한다<br>
    .+클래스명{선언;선언;}
+
+# 스타일 적용시키기
+1.스타일을 적용시킬 태그를 선택한다(선택자)
+2.스타일을 적용한다.
+> 프로퍼티(property)를 잘알아야함
 
