@@ -11,11 +11,11 @@ CSS를 HTML파일에 어떻게 적용시키냐
 예시) h2 style="color:red">인라인적용/h2>
 
 2. style태그를통해 적용(내장(embedded) 방식<br>
-예시) head><br>
+예시)<p>head><br>
 &nbsp;&nbsp;style>
           
 &nbsp;&nbsp;/style>
-&nbsp;/head><br>
+&nbsp;/head><br></p>
       
 4. 링크 방식 - 외부의 CSS파일을 불러와서 적용<br>
  head><br>
