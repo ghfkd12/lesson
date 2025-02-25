@@ -18,11 +18,11 @@ CSS를 HTML파일에 어떻게 적용시키냐
       /head><br>
       
 4. 링크 방식 - 외부의 CSS파일을 불러와서 적용
- head>
-    link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'>
- /head>
+ head><br>
+    link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'><br>
+ /head><br>
 
-5. import 방식
+5. import 방식<br>
  @import url(css/style.css);
 
 # 태그를 직접 선택
@@ -33,7 +33,7 @@ CSS를 HTML파일에 어떻게 적용시키냐
 
 2. 클래스(class)선택자 > .+클래스 명<br>
 2-1. 태그에 클래스명을 붙인다<br>
-   <태그명 class="클래스명">content</태그명>
+   태그명 class="클래스명">content/태그명>
 
 2-2. 클래스를 붙인 태그를 선택한다<br>
    .+클래스명{선언;선언;}
