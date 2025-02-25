@@ -12,12 +12,12 @@ CSS를 HTML파일에 어떻게 적용시키냐
 
 2. style태그를통해 적용(내장(embedded) 방식
 예시) head><br>
-          <p></p>style>
-
+          <p>style>
+   
           /style><p>
       /head><br>
       
-3. 링크 방식 - 외부의 CSS파일을 불러와서 적용
+4. 링크 방식 - 외부의 CSS파일을 불러와서 적용
  head>
     link rel=”stylesheet” type=”text/css” href='css 외부 파일 경로'>
  /head>
