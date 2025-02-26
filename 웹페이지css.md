@@ -68,15 +68,15 @@ CSS를 HTML파일에 어떻게 적용시키냐
 
 
 # CSS 속성(css 스타일은 다 속성으로 이루어져 있다.)
--선택자{속성명 : 값; 속성명 : 값;}
+- 선택자{속성명 : 값; 속성명 : 값;}
 
 > 인라인 형태 스타일 적용
 > p style="속성명 : 값; 속성명 : 값;></p 
 ## 테두리
-- border : 두께, 스타일, 색깔
-  1.border-width : 두께
-  2.border-style : 스타일
-  3.border-color : 색깔
+- border : 두께, 스타일, 색깔<br>
+  1.border-width : 두께<br>
+  2.border-style : 스타일<br>
+  3.border-color : 색깔<br>
 
 ## 여백
 - padding : 내용과 테두리 사이의 여백
@@ -95,3 +95,5 @@ CSS를 HTML파일에 어떻게 적용시키냐
   3. repeat-x
   4. repeat-y
 
+> img src="경로">(html이기때문에 레이아웃에 영향을 줄 수 밖에 없다)<br>
+> css로 background url(경로)(html이아닌 요소의 배경으로 처리되서 레이아웃에 직접적인 영향을 주지 않는다)
