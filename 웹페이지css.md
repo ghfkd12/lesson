@@ -134,3 +134,31 @@ CSS를 HTML파일에 어떻게 적용시키냐
 # 미디어 쿼리
 - @media(조건){조건이 맞을 때 보여줄 스타일}
 >경우에 따라 모바일과 데스크탑용 디자인을 완전히 별개의 CSS파일로 관리하려고 할 때 미디어 쿼리를 적용할 수 있다
+
+
+## pc화면이나 모바일 화면에서 다르게 보일 디자인을 적용
+### 요소 배치하는거
+1. grid : 표 형태로 배치
+> grid-template-rows(행의배치) {100px, 1fr 1fr(비율)}
+> grid-template-columns(열의배치)
+
+> reapeat(반복횟수, 반복값)
+> repeat(5, 1fr) -> 1fr 1fr 1fr 1fr 1fr
+ -> repeat(3, 1fr 4fr 2fr) -> 1fr 4fr 2fr 1fr 4fr 2fr 1fr 4fr 2fr
+> ex) grid-template-rows : repeat(3,1fr)
+
+-minmax() : 최소값과 최대값을 지정할 수 있는 함수
+>ex) minmax(100,auto) ->최소는100 최대는 오토
+
+-gap : 요소사이의 간격
+
+2. flex : 축을 기준으로 배치 (수직 또는 수평으로 메인축을 정해야함)
+- 컨테이너에 주는 속성
+> justify-content : 메인축 기준 아이템 정렬 방법
+> aligm-items : 반대축 기준으로 아이템 정렬 방법
+> flex-direction : 메인축 결정
+
+- 아이템에 주는 속성
+> order
+> flex-grow
+> flex-shrink
