@@ -90,6 +90,27 @@ GRANT SELECT,INSERT,UPDATE ON 테이블 TO 대상;
 - DBA : 데이터베이스의 모든 관리 권한을 포함하는 최고 수준의 역할
 
 
+alter user 계정명 default tablespace 테이블스페이스명 QUOTA unlimited on baby;
+
+권한을 주거나 뺏는것은 관리자 계정으로부터 해야한다.
+baby계정의 기본 테이블스페이스를 baby로 지정하면서 무제한으로 사용을 할 것이다.
+alter user baby default tablespace BABY QUOTA unlimited on baby;
+
+QUOTA : 사용자가 특정 테이블스페이스 내에서 사용할 수 있는 디스크 공간의 최대량을 지정하는데 사용되는 키워드
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
