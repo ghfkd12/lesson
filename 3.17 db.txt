@@ -1,0 +1,160 @@
+scott을 통해 baby라는 일반계정을 생성해보려고한다.
+
+계정생성 방법
+create user 계정명 identified by 비밀번호
+에러남(scott이 계정생성 권한이 없음
+
+scott에 계정생성 권한을 줌
+
+baby계정이 사용할 저장소를 생성해보자
+select tablespace_name, status, contents
+from dba_tabelspaces;
+
+dba_tabelspaces
+orcle 데이터베이스 내 모든 테이블스페이스에 대한 정보를 제공하는 뷰
+
+데이터 스페이스
+- 논리적 저장소 단위
+데이터베이스 객체(테이블, 인덱스 등)의 데이터를 저장하는
+컨테이너 역할을 하며, 실제 데이터는 하나 이상의 데이터 파일에 저장된다.
+
+테이블 스페이스는 하나 이상의 데이터 파일로 구성이 되고, 이 파일들은 물리적 저장소에 위치하며 실제 데이터를 저장한다.
+
+tablespace_name
+테이블스페이스의 이름을 확인할 수 있다.
+
+status
+테이블스페이스의 현재 상태를 나타낸다.
+
+contents
+테이블스페이스의 저장되는 데이터의 종류를 표시
+
+select file_name, tablespace_name, autoextensible
+from dba_data_files;
+
+dba_data_files
+오라클에서 사용되는 데이터 파일들의 세부정보를 제공하는 뷰
+
+file_name
+데이터 파일의 전체 경로와 파일명을 나타낸다.
+실제 리스트상에 존재하는 파일의 위치를 확인할 수 있다.
+
+tablespace_name
+해당 데이터 파일이 소속된 테이블스페이스의 이름을 보여준다.
+이를통해 논리적 저장 단위와 물리적 파일간의 관계를 파악할 수 있다.
+
+autoextensible
+데이터파일이 자동확장(autoextend) 기능으로 설정되어 있는지 여부를 나타낸다.
+'yes' or 'no'로 표기되며, 'yes'인 경우 파일크기가 설정된 조건에 따라 자동으로 늘어난다.
+
+테이블 스페이스의 생성
+BABY라는 이름으로 200MB크기로 생성해보자
+위치는 C:\ORACLEXE\APP\ORACLE\ORADATA\XE 폴더에 BABY.DBF로 생성을 하자.
+데이터가 늘어나 테이블스페이스가 꽉 찰 것을 대비해서 5MB씩 자동으로 증가하게 하자.
+
+CREATE 
+    TABLESPACE 테이블스페이스명
+    DATAFILE '경로와 이름'
+    SIZE 크기
+    AUTOEXTEND ON NEXT 크기
+    (MAXSIZE 크기)
+
+
+권한주기
+GRANT 권한종류 TO 대상;
+
+SCOTT에게 계정생성 권한 주기
+GRANT CREATE USER TO SCOTT;
+
+권한의 종류
+
+1.시스템 권한 : 데이터베이스 전체에 영향을 미치는 작업
+(사용자의 생성, 데이터베이스 구조 변경)
+- CREATE SESSION : 데이터베이스에 접속할 수 있는 권한
+- CREATE TABLE : 테이블을 생성할 수 있는 권한
+- ALTER SYSTEM  : 시스템 설정을 변경할 수 있는 권한
+- CREATE USER : 사용자 계정을 생성할 수 있는 권한
+
+뷰 : 가상의 테이블, 프로시저 : 사용자가 정의한 함수
+2. 객체 권한 : 특정 데이터베이스 객체(테이블,뷰,프로시저)에 대해 부여되는 권한
+- SELECT
+- INSERT
+- DELETE
+- UPDATE
+
+GRANT SELECT,INSERT,UPDATE ON 테이블 TO 대상;
+
+3. 역할 : 한번에 여러권한을 사용자에게 부여하거나 회수할 수 있도록 돕는다.
+- CONNECT : 기본적인 데이터베이스 접속권한을 제공하는 역할
+- RESOURCE : 테이블, 인덱스 등 객체를 생성할 수 있는 권한을 포함하는 역할
+- DBA : 데이터베이스의 모든 관리 권한을 포함하는 최고 수준의 역할
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
