@@ -1,0 +1,165 @@
+DCL(Data Controll Language) : 데이터 제어어
+
+데이터 베이스에 접근하고 객체들을 사용하도록 권한을 주고나 회수하는 명령어
+- GRANT, REVOKE
+
+권한주기 : GRANT 권한명, 권한명 TO 계정명;
+
+개별적인 권한
+CREATE USER
+CREATE SESSION
+CREATE TABLE
+
+역할(ROLES)
+여러 권한을 그룹화한 집합
+
+CONNECT : 기본적인 데이터베이스 접속 권한을 제공
+RESOURCE : 테이블, 인덱스 등 객체를 생성할 수 있는 권한 포함
+DBA : 데이터베이스의 모든 권한을 포함하는 최고 수준의 역할
+
+테이블스페이스
+테이블들이 논리적으로 저장되는 공간
+테이블스페이스는 저장장치에 파일형태로 존재한다.
+
+테이블스페이스 만들기
+CREATE TABLESPACE 테이블스페이스명
+DATAFILE '경로와 이름'.dbf
+SIZE 크키M  -- 여기까진 디폴트로 쓰임
+(AUTOEXTEND ON NEXT 크기M)
+(MAX 크기M)  -- 소괄호는 생략 가능
+
+DBA-DATA-FILES
+뷰 : 가상의 테이블 
+DUAL과 다른점은 한번쓰고 마는게 아니고 계속 남아있다.
+
+오라클에서 사용되는 데이터 파일들의 세부정보를 제공하는 뷰
+데이터베이스의 물리적 저장소 구성 요소에 대한 다양한 정보를 포함하고 있다.
+
+FILE_NAME
+데이터 파일의 전체 경로와 파일명을 나타낸다.
+실제 디스크상에 존재하는 파일의 위치를 확인할 수 있다.
+
+TABLESPACE_NAME
+해당 데이터 파일이 소속된 테이블스페이스의 이름을 보여준다.
+
+AUTOEXTENSIBLE
+데이터파일이 자동확장 기능으로 설정되어있는지 여부를 나타낸다.
+'YES' OR 'NO'로 표시된다.
+
+INDEX
+
+자동으로 만들어지는 인덱스 : PRIMARY KEY, UNIQUE에 의해 자동으로 만들어진다.
+
+수동인덱스 : 사용자가 직접 생성한 INDEX를 의미
+
+INDEX조회
+
+SELECT * FROM ALL_INDEXS WHERE TABLE_NAME = '테이블명'
+
+인덱스를 사용하면 좋은곳
+1. 데이터가 많은곳
+2. 삽입, 수정, 삭제가 잘 일어나지 않는 곳
+
+인덱스의 삭제
+공간을 너무 많이 차지한다면 지우는것도 방법
+
+DROP INDEX 인덱스명;
+
+언제 인덱스가 사용되는가?
+1. WHERE절
+- 조건에 사용된 컬럼에 인덱스가 있으면 DBMS가 인덱스를 통해서 빠르게
+해당 행의 위치를 찾는다
+
+2. JOIN, ORDER BY, GROUP BY
+- 두 테이블을 조인하거나, 결과를 정렬 또는 그룹화 할 때도 인덱스가 사용된다.
+
+인덱스가 제대로 작동하는지 확인하는 방법
+
+EXPLAIN PLAN 사용하기
+
+1. 실행할 쿼리 앞에 EXPLAIN PLAN FOR를 추가한다.
+ㄴ 쿼리의 실행 경로를 분석하고
+ㄴ 쿼리의 실행 계획 정보는 PLAN_TABLE이라는 테이블에 저장된다.
+2. 그 후 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);명령을 실행하여 계획을 확인한다.
+
+서브쿼리 : 쿼리문안에 쿼리문이 있는 것
+- DB에 여러번 접속할 거를 한번에 접속할 수 있다.
+- 가독성이 조금 떨어질 수 있다.
+
+FROM절(IN LINE VIEW) : 쿼리문으로 출력되는  결과를 테이블처럼 사용
+SELECT절(SCALAR) : 하나의 컬럼처럼 사용되는 서브쿼리
+WHERE(SUB QUERY) : 하나의 변수처럼 사용
+
+UPDATE문에 SET에서 사용
+DELETE문에서 WHERE에서 사용
+
+CONCATENATION(연결) : ||
+- 두개의 컬럼을 마치 하나의 컬럼처럼 연결
+
+SELECT FIRST_NAME|| ' ' || LAST_NAME FROM EMPLOYEES;
+
+SELECT FIRST_NAME||'의 급여는'||SALARY||'이다' FROM EMPLOYEES;
+
+별칭(ALIAS)
+- SELECT절의 컬럼 뒤에 주는법
+
+1. AS 별칭 ("두 단어 이상의 별칭")
+2. (AS 생략)별칭 ("두 단어 이상의 별칭")
+
+FROM절
+- 테이블 이름 대신 별칭을 사용하는게 가능
+
+JOIN
+ANSI조인 : 표준 JOIN 방법
+
+INNER JOIN 
+- 두 테이블 간에 조인 조건에 일치되는 데이터만 가져온다.
+(보통 PK와 FK를 연결)
+
+SELECT E.FIRST_NAME, E.DEPARTMENT_ID, D.DEPARTMENT_NAME
+FROM EMPLOYEES E (INNER) JOIN DEPARTMENTS D
+ON E.DEPARTMENT_ID = D.DEPARTMENT_ID
+
+ON과 WHERE의 차이
+
+ON : JOIN시 두 테이블의 행의 결합 조건을 지정
+     특히 외부 JOIN에서는 어떤 행을 결합할지 결정하는 중요한 역할을 한다.
+
+WHERE : 결합된 결과 집합에 대해 추가적인 필터링을 적용한다.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
