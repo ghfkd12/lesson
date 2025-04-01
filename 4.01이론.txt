@@ -1,0 +1,126 @@
+제네릭스
+- 클래스나 메서드에서 사용할 데이터의 타입을 객체를 만드는 시점에
+결정할 수 있도록 해주는 기능
+- 컴파일시 파일 안정성을 확보하고, 형변환을 줄여준다는 장점이 있다.
+- 클래스명 뒤에 타입 매개변수를 <>안에 작성한다.
+
+타입 매개변수의 전파
+public class A(<T>){
+  // object value;
+  ->   T value;( T = String)
+  }
+
+A<String> a = new A<>();
+
+a.value = 문자열;
+
+A<Integer> a = new A<>();
+
+a.value = 정수
+
+value를 데이터타입에 맞게 변경하기 번거로움
+타입을 고정시켜놓으면(int,double 등) 다른 불편함이 있다.
+
+매개변수엔 대개 데이터를 전달함
+(정수, 실수, 문자열, 배열 ..)
+
+타입매개변수는 타입을 전달한다.
+(String, Integer ..)
+
+Wrapper
+int -> Integer
+char -> charcter
+double -> Double
+float -> Float
+
+제네릭은 형변환이 안된다.
+
+클래스쪽에 타입매개변수를 적을 경우
+<T extends Number> -> Number부터 자식클래스만 들어올 수 있다.(Integer, Double, Float ..)
+
+<T super Integer> -> Integer부터 부모클래스만 들어올 수 있다.(Number뿐)
+
+함수쪽에 적을 경우
+public void f(List <? extends Number>list){
+
+}
+
+뭐가 올지 모른다 정도의 의미로 ?를 붙인다.
+
+컬렉션 프레임워크
+대량의 데이터를 담을 수 있는 자료구조
+인터페이스와 클래스형태로 제공
+
+인터페이스 (상수 , 추상메서드, default 메서드들이 들어가 있을 수 있다.
+
+Collection 인터페이스 내부에
+
+
+List             Set                      Map
+Linked List : 노드(Node)를 기반으로 동작
+            : 주소가 연속적이지는 않다.
+            : 추가/삭제에 유리
+            : 실질적으로 인덱스가 존재하지는 않는다.
+            : 조회에 불리하다(속도가 느림)
+            
+  
+Array List : 내부에서는 배열을 기반으로 작동한다.
+           : 인덱스가 존재한다.
+           : 데이터를 제한없이 넣는대로 들어간다.
+           : 인덱스가 존재하기 때문에 조회에 유리하다.
+           : 
+Vector : 안씀 (옛날 꺼)
+
+ArrayList<String> list = new ArrayList<>();
+
+
+add(E e) : 데이터를 맨뒤에 추가
+E도 제네릭이다.
+add(int index, E e) : 데이터를 내가 원하는 위치에 추가
+set(int index, E e) : 내가 원하는 위치의 데이터를 수정
+remove(int index) : 내가 원하는 위치의 데이터를 삭제
+clear() : 리스트안의 내용을 모두 삭제(리스트는 유지)
+contains(E e) : 리스트안에 요소가 있는지 판별(true, false로 판별)
+
+public class User{
+        private String id;
+        private int pwd;
+        private String tel;
+        private String address;
+
+        setter&getter;
+}
+
+ArrayList<User> list = new ArrayList<>();
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
