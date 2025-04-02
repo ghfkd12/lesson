@@ -1,0 +1,85 @@
+List, Set 인터페이스
+
+Map 인터페이스
+
+List인터페이스의 메서드(Set도 비슷하다)
+
+boolean add(E e) : 요소 추가(성공 여부를 반환)
+E get(int index) : 해당 인덱스의 요소를 반환
+E set(int index, E e) : 해당 인덱스의 요소를 변경(이전 요소를 반환)
+E remove(int index) : 해당 인덱스의 요소를 삭제(제거된 요소를 반환)
+boolean contains(Object o) : 요소를 포함하는지 여부
+int size() : 요소의 개수를 반환
+void clear() : 모든 요소 제거
+boolean isEmpty() : 리스트가 비어 있는지 여부
+
+ArrayList
+List인터페이스를 구현한 구현체
+
+인덱스가 존재
+내부에서 배열을 기준으로 동작
+개수의 제한이 없이 넣는대로 들어간다.
+조회에는 유리하나 추가,삭제에는 불리하다.
+
+HashSet
+Set을 구현한 인터페이스
+
+인덱스가 없다
+내가 넣은 순서대로 출력된다는 보장이 없다.
+중복된 데이터는 들어가지 않는다.
+
+- 주로 쓰는곳
+중복되는 데이터를 걸러야 할 때
+정렬이 중요하지 않을 때
+
+HashMap
+Key-Value가 한쌍의 데이터
+
+인덱스가 존재하지 않는다.
+Key값이 중복되면 value를 갱신
+value값은 중복되도 된다.
+추가,조회,삭제,수정을 Key를 기준으로 한다.
+
+HashMap메서드
+V put(K key, V value) : 추가
+V get(K key) : key를 통해 value를 반환
+V remove(K key) : 제거된 값을 반환
+boolean containskey(K key) : key 존재 여부 판별
+boolean containsValue(V value) : value존재 여부 판별
+KeySet() -> 모든 key를 Set으로 변환
+values() -> 모든 value를 Collection타입으로 반환
+entrySet() -> 하나의 Key-value쌍을 하나의 Entry로 반환
+- key와 value를 동시에 다루고 싶을때 효율적 이다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
