@@ -67,9 +67,97 @@ putIfAbsent()
 remove()
 isEmpty()
 
+람다식(lamda expression)
 
+함수를 값처럼 사용해서 변수에 대입할 수 있다.
 
+람다식을 작성하기 위해서는 함수형 인터페이스가 반드시 필요하다.
 
+원래 쓰던 함수
+public int add(int x, int y){
+    return x+y;
+}
+
+(int x, int y) -> {return x+y};
+
+자료형을 생략할 수 있다.
+(x,y) -> {return x+y};
+
+return과 중괄호({})는 같이 생략할 수 있다.
+(x,y) -> x+y;
+
+매개변수가 하나일 때는 소괄호도 생략이 가능하다.
+
+x -> System.out.pritnln(x);
+
+매개변수가 하나고 명령이 하나면 ::연산자를 사용해서 더 줄일 수 있다.
+
+System.out::println
+
+직접 함수형 인터페이스를 생성할 수도 있지만
+컬렉션에 속해있는 메서드에 매개변수로 사용되는 일이 더 많다.
+
+람다식의 참조 연산자(::)
+람다식을 간결하게 표현하기 위한 문법
+
+s -> System.out.println(s)
+
+System.out::println
+
+종류와 형식
+정적 메서드 참조 
+클래스명::정적 메서드명
+Integer::parseInt
+
+인스턴스 메서드 참조
+참조변수::인스턴스메서드
+System.out::println
+
+특정 타입의 인스턴스메서드 참조
+클래스명::인스턴스메서드
+String::toUpperCase
+
+생성자 참조
+클래스명::new
+ArrayList::new
+
+스트림의 특징
+데이터를 하나씩 순회하면서 반복할거라면 iterator를 쓰면되는데 왜 스트림을 써야하냐
+-> 데이터 처리 파이프라인을 구성해서 선언형으로 데이터를 처리할 수 있다.
+
+선언형
+
+일반 반복
+for(String name : names){
+    if(name.length() > 3){
+          System.out.println(name);
+    }
+}
+
+선언형(Stream으로 처리)
+ex)names.stream().filter().map().forEach();
+-> 메서드를 뒤로 나열함
+
+names.stream()
+          .메서드()
+          .메서드()
+          .메서드()
+          .메서드()
+          .메서드()
+
+내부반복
+개발자가 반복을 제어하지 않고 스트림이 알아서 요소들을 반복하면서 처리하는 방법
+어떻게 반복할지는 스트림이 정하고 반복하면서 무엇을 할지를 정하면 된다.(forEach)
+
+지연연산(Lazy Evaluation)
+중간 연산은 최종 연산이 실행되기 전까지 아무일도 하지 않는다.
+최종 연산이 호출될때까지 연기되는 처리방식이다.
+
+불변성(Immutable)
+원본 데이터는 변경하지 않는다. (=stream)
+
+일회성
+스트림은 최종연산이 끝나면 다시 중간연산을 할 수 없다.
 
 
 
