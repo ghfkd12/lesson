@@ -1,0 +1,50 @@
+JS의 활용
+이벤트 처리하는곳에서 많이 사용
+
+1. 표준 이벤트 처리
+let tag = document.querySelector("CSS선택자")
+tag.addEventListener("이벤트",이벤트처리함수);
+2. 태그에 속성으로 넣기
+<tag onClick(onChange) = "f()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
