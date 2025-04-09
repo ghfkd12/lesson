@@ -1,0 +1,12 @@
+파일클래스의 메서드
+
+isFile() : 최종 목적지가 파일이면 true
+isDirectory() : 최종 목적지가 폴더면 true
+list() : 디렉토리 내 목록 반환
+length() : 파일 크기 반환
+getName() : 파일명을 반환
+gerAbsolutePath() : 절대 경로 반환
+exists() : 목적지가 존재하면 true
+delete() : 파일이나 폴더를 삭제하고 true반환
+ㄴ 폴더 내부가 비어있어야 삭제가능
+createNewFile() : 새로운 파일 생성
