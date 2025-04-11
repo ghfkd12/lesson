@@ -90,6 +90,57 @@ Method      : 클래스의 메서드를 표현
 Constructor : 생성자를 표현
 Annotation  : 어노테이션 정보를 표현
 
+jdbc(java database connectivity)를 사용해서 연결을 했고
+oracle <-> DBeaver
+드라이버 <-> 두개를 연결해주는 다리
+oracle <-> java
+
+라이브러리(.jar)
+다양한 기능을 쉽게 사용할 수 있도록 미리 만들어진 클래스와 메서드의 집합
+
+1. 표준 라이브러리
+- JDK에 기본적으로 포함되어있다.
+- java.*, javax.*, javafx.*
+
+2. 외부 라이브러리
+- 개발자가 별로도 다운로드해서 사용하는 라이브러리
+
+Statement 보안위험
+
+Statement stmt = conn.createStatement();
+String sql = "Select * from emp where ename = '"+InputName+"'";
+ResultSet rs = stmt.executeQuery(sql);
+
+' OR '1' = '같은 값이 들어가게 되면 전체 테이블이 출력되는 SQL Injection발생 위험이 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
