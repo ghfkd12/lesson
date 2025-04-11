@@ -58,12 +58,37 @@ public @interface MyAnnotation{
 
 }
 
+2. 어노테이션 속성은 메서드형태로 정의해야한다.
+- 추상메서드 형태로 정의해야 한다.
 
+public @interface MyAnnotation{
+          String value(); default "홍길동";
+          int version();
+}
 
+3. 속성의 반환타입은 제한적이다.
+기본타입, String, class<?>, 열거형, 다른 어노테이션, 배열
 
+4. 속성이름이 value일 경우 특별 규칙
+@MyAnnotation(value = "xxx")
+@MyAnnotation("xxx") -> 속성 이름이 value일 경우 생략 가능
 
+5. 어노테이션 자체에는 예외를 던질 수 없다.
+- 어노테이션 속성은 단순 선언만 가능하고 예외, 로직, 조건문 등은 포함할 수 없다.
+String value() throws Exception; -> 불가능
 
+6. 속성은 매개변수를 가질 수 없다.
+String name(String input); -> 불가능
 
+리플렉션(Reflection)
+클래스, 메서드, 필드, 생성자 등의 정보를 프로그램 실행 중에 동적으로 조사하거나 조작할 수 있는 기능
+
+리플렉션 API의 핵심 클래스
+Class<?>    : 클래스의 메타 정보를 저장할 수 있는 클래스
+Field       : 클래스의 필드를 표현
+Method      : 클래스의 메서드를 표현
+Constructor : 생성자를 표현
+Annotation  : 어노테이션 정보를 표현
 
 
 
