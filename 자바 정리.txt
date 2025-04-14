@@ -27,6 +27,18 @@ c, java, js, python, c++,c# ...
 연산자
 배열
 
+다형성
+상속 + 오버라이딩 + 타입변환 세가지를 합친 개념
+
+클래스 타입변환
+자동타입변환 : 부모타입의 객체변수에 자식객체를 대입하는것
+
+public class Parent{};
+
+public class Child extends Parent{};
+
+Parent p = new Child();(만들 수 있다.
+
 
 
 
