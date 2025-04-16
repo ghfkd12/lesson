@@ -1,0 +1,13 @@
+프로젝트 구성요소
+package.json
+프로젝트 메타 데이터
+사용할 node.js의 패키지목록버전도 명시가 되어있다.
+
+필요한 패키지가 있다면 package.json의 dependencied에 명시하고
+npm install을 하면 node-module에 설치된다.
+
+package-lock.json
+어느 환경에서든 같은 버전의 패키지를 설치하기위해
+각 패키지가 사용할 버전을 고정해놓는다.
+보통 이 작업은 npm install 또는 create-react-app명령시 자동으로 실행된다.
+
