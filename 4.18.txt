@@ -7,3 +7,10 @@ npx create-react-app 프로젝트명
 
 index.js에서 <div>요소를 react의 루트요소로 만든다.
 render()메서드를 이용해서 컴포넌트를 렌더링한다.
+
+상태(state):
+
+
+const[ 상태, 상태변경함수] = useState(초기값)
+초기값 자리에 들어갈 수 있는 타입
+기본 자료형, 배열, 객체
