@@ -10,4 +10,78 @@ Context API
 데이터 전달을 위해 여러단계의 컴포넌트를 거쳐야하는 상황을 해소할 수 있다.
 
 Context API의 사용법
-1. 
+
+데이터를 전달하는 방법
+
+1. 부모 컴포넌트에서 props전달하기
+const Parent = () => {
+    const UserName = "홍길동",
+    const age = 40;
+    return(
+      <div>
+        <Child name = {userName} age = {age} isAdmin = {true} />
+      </div>
+    )
+}
+
+const Child = (props) => {
+  return(
+    <div>
+      <p>이름 : {props.name}</p>
+      <p>나이 : {props.age}</p>
+      <p>관리자 여부 : {props.isAdmin ? '예' : '아니오'}</p>
+    </div>
+    )
+}
+
+2. Children으로 내용 전달하기
+JSX태그 사이에 넣은 내용은 props.children으로 전달된다.
+
+const Parent = () => {
+    const UserName = "홍길동",
+    const age = 40;
+    return(
+      <Wrapper>
+          <p>이 내용은 children으로 전달된다.</p>
+      </Wrapper>
+    )
+}
+
+const Wrapper = ({children}) => {
+  return(
+    <div className = "wrapper">
+        {childred}
+    </div>
+  )  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
