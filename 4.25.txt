@@ -22,3 +22,88 @@ fetchData((result) => {
 2. 함수를 호출한다.(인자로 전달할거 있으면 같이 전달한다)
 3. 함수를 선언한 쪽으로 올라가서 기능을 실행한다.
 4. 함수안의 모든 내용이 끝나면 호출한 쪽으로 돌아와서 아래에 코드가 있으면 계속 진행한다.
+
+2. Promise객체
+비동기 작업이 완료 되었을 때 성공 또는 실패에 대한 결과를 반환하는 객체
+
+Promise의 상태
+Promise객체는 생성직후 pending상태이며, 비동기 작업이 성공하면
+fullfilled, 실패하면 rejected상태로 바뀐다.
+
+pending : 아직 결과가 결정되지 않은 초기 상태
+fullfilled : 작업이 성공적으로 완료되어 결과 값을 반환한 상태
+rejected : 작업이 실패하여 에러를 반환한 상태
+
+.then() : 콜백이 호출되면 fullfilled 상태로 완료된 것이고,
+.catch() : 콜백이 호출되면 rejected상태로 실패한것이다.
+
+const promise = new Promise(콜백함수)
+
+Promise의 콜백함수 종류
+() => {} 부분이 콜백함수 이다.
+const promise = new Promise((resolve, reject) => {})
+1. 생성자에 넘기는 콜백함수
+2. Promise객체가 생성될 때 즉시 실행이 된다.
+3. resolve와 reject는 함수형 매개변수로 주어진다.
+
+Promise체이닝
+여러 비동기 작업을 순차적으로 연결할 때 유리하다.
+.then()
+.catch()
+.finally()
+
+3. async/await
+
+async : 함수 앞에 async키워드를 붙임으로써 해당 함수를 비동기함수로 만드는 효과가 있다.
+비동기 함수는 무조건 Promise객체를 반환한다.
+
+async function fetchData() {
+    return '데이터'
+}
+
+await : 비동기 함수 안에서 사용하는 키워드 Promise가 처리될 때 까지 함수의 실행을 일시적으로 중지한다.
+
+const fetchData() => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+    resolve('데이터 받아옴')
+    },2000)
+  })
+}
+
+async function getData() {
+    console.log('api요청 시작')
+    const data = await fetchData(); // 2초뒤에 데이터를 받아온다.
+    console.log('다음 작업 시작')
+}
+console.log('끝')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
