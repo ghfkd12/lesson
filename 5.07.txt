@@ -30,8 +30,29 @@ interface TodoRepository extends JPARepository
 -> 컨트롤러로 반환
 -> 응답
 
+수정
 
+타이틀 변경을 위해 input의 필드에서 사용자가 입력을 받아올 때 editEventHandler()에서 item을
+바로 넘겨버리면 한글자씩 입력할 때 마다 HTTP요청을 보내게 된다.
+- 이는 비효율적이기 때문에 수정을 완료한 시점에서 HTTP요청을 보내고 싶다
+- 입력이 끝나서 수정이 불가능한 상태로 바뀌는 시점
 
+사용자 관리 시스템
+- 사용자의 정보를 관리하는 기능을 갖는 API만들기
+
+프로젝트 만들기
+start.spring.io에서 프로젝트 생성하기
+group : com.korea
+arifact : user
+필요 라이브러리
+Spring Web
+h2
+lombok
+Spring Data JPA
+
+com.korea.user.model패키지
+UserEntity클래스 만들기
+- 유저는 id, name, email필드를 갖는다
 
 
 
