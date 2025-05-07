@@ -1,0 +1,62 @@
+JPA의 활용
+영속계층에서 DB와 통신
+
+쿼리메서드
+쿼리를 직접 작성하는것이 아닌 메서드를 통해서 쿼리문을 자동으로 작성한다.
+
+1. 추가or수정
+save()
+
+2. 조회
+find()
+findById() : ID로 데이터를 조회한다.
+findAll() : 모든 데이터를 조회한다.
+
+3. 삭제
+deleteById() : ID로 데이터를 삭제한다.
+
+4. 카운트
+count() : 데이터의 총 개수를 반환한다.
+
+@Repository
+interface TodoRepository extends JPARepository
+
+요청
+-> url과 맞는 컨트롤러로 매핑이 된다
+-> 컨트롤러 메서드에서 service를 호출한다
+-> service메서드에서 repository를 호출한다.
+-> repository에서 DB와 통신해서 데이터를 얻어온다.
+-> 서비스로 반환
+-> 컨트롤러로 반환
+-> 응답
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
