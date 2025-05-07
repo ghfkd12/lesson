@@ -40,7 +40,7 @@ interface TodoRepository extends JPARepository
 사용자 관리 시스템
 - 사용자의 정보를 관리하는 기능을 갖는 API만들기
 
-프로젝트 만들기
+1. 프로젝트 만들기
 start.spring.io에서 프로젝트 생성하기
 group : com.korea
 arifact : user
@@ -53,6 +53,33 @@ Spring Data JPA
 com.korea.user.model패키지
 UserEntity클래스 만들기
 - 유저는 id, name, email필드를 갖는다
+- id는 자동으로 값을 부여한다.
+
+com.korea.user.dto패키지
+UserDTO클래스 만들기
+- UserDTO는 id,name,email필드를 갖는다
+- DTO에서 Entity, Entity에서 DTO로 변환할 수 있는 기능이 있다.
+
+com.korea.repository패키지
+UserRepository인터페이스 생성
+- JpaRepository를 상속받는다.
+- 이메일을 통해 유저를 찾는 findByEmail추상메서드를 추가한다.
+
+com.korea.user.service패키지 생성하기
+UserService 클래스 생성하기
+- 사용자를 생성하는 create메서드 만들기
+- 생성하고 추가가 잘됐는지 조회 결과를 반환한다.
+
+com.korea.user.controller패키지 생성하기
+UserController클래스
+- mapping : /users
+유저를 추가하는 createUser메서드 작성하기
+ㄴ 반환형은 ResponseEntity
+
+2. 모든 사용자 조회 기능 만들기
+
+3. 이메일을 통해 사용자 검색하는 기능 만들기
+3-1. @PathVariable 사용하기
 
 
 
