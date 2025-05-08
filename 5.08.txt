@@ -45,7 +45,13 @@ function call(api, method, request){
   
 }
 
-
+프로젝트 만들때 요령
+1. 패키지를 먼저 만들자(dto,model,service,controller,repository)
+2. Entity부터 만들기(db의 테이블과 1:1 매핑)
+3. DTO만들기
+4. Controller만들기
+5. Service만들기
+6. Repository만들기
 
 
 
