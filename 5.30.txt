@@ -1,0 +1,88 @@
+리액트, 네이티브
+컴포넌트를 조합해서 UI랑 기능을 구성
+컴포넌트는 하나의 모듈이라 보면 된다
+
+const CustomButton = ({title, onPress}) =>{ -> 정의
+공통적인 부분은 컴포넌트를 정의할 때 미리 써놓을 수 있다.
+버튼마다 다른 부분은 props(매개변수)로 받는다.
+
+  return(
+      <Pressable style={} onPress={onPress} >
+          <Text>{title}</Text>
+      </Pressable>
+  )
+}
+
+<CustomButton title={login} onPress={} /> -> 사용
+
+전역상태관리
+
+const Context = createContext()
+
+const Provider = ({children}) => {
+  return(
+    <Context.Provider value={전역으로 관리하려는 데이터} >
+        {children}
+    </Context.Provider>
+  )
+}
+
+네비게이션(화면이동)
+리액트 네이티브 자체로는 네비게이션기능을 제공하지 않기 때문에 외부 라이브러리를 사용해야한다.
+
+네비게이션의 종류
+1. Stack
+2. Tab
+3. Drawer
+
+@react-navigation/native
+스택, 탭, 드로어 같은 화면 전환 네비게이션 기능을 제공하는데,
+여기서 네비게이션 컨텍스트와 상태를 관리하는 기능을 담당한다.
+이 패키지 자체는 네비게이션 로직만 담당하고, 실제로 화면 전환 애니메이션이나 제스처 처리는 다른 라이브러리들이 필요하다.
+
+react-native-gesture-handler
+제스처(터치, 스와이프 등)를 더 부드럽고 정확하게 해주는 라이브러리
+
+react-native-reanimated
+애니메이션을 자바스크립트 스레드가 아니라 네이티브 스레드에서 직접 실행해서 렉 없이 부드러운 애니메이션을 구현할 수 있다.
+
+react-native-screens
+화면간 전환을 더 최적화하는 라이브러리
+스택네비게이션에서 이전 화면을 메모리에 남겨둘 때 불필요한 재렌더링을 막아주고 전환성능이 빨라진다.
+
+react-native-safe-area-context
+노치, 홈인디케이터, 상단 상태바 같은 디바이스의 안전영역을 인식하고 컴포넌트가 그 안에 렌더링 되게 해주는 라이브러리
+디바이스별로 달라지는 안전 영역 정보를 제공하고, 그에 맞게 padding/margin 조정이 가능하다.
+
+@react-native-community/masked-view
+특정 뷰를 마스크 처리해서 뷰의 특정 영역만 보여줄 수 있게 하는 기능
+
+@react-navigation/stack
+스택 네비게이션을 구현하는 라이브러리
+사용자가 화면간에 이동할 수 있게 만들어준다.
+스택 구조로 페이지를 쌓고 쌓인 페이지를 제거하면서 이동하는 구조이다.
+
+1. 화면으로 사용할 컴포넌트들을 만든다
+Home.js
+List.js
+Item.js
+
+2. 스택 네비게이션을 구성한다.
+Stack.js
+
+2-1 createStackNavigator()를 통해 스택 객체를 생성
+const Stack = createStackNavigator();
+
+Stack객체는 Navigator와 Screen이라는 컴포넌트를 제공한다.
+
+<Stack.Navigator>
+  <Stack.Screen name="Home" component = {Home} />
+  <Stack.Screen name="List" component = {List} />
+  <Stack.Screen name="Item" component = {Item} />
+</Stack.Navigator>
+
+스타일이 반영되는 순위
+1. ...~
+2. options
+3. screenOptions
+
