@@ -1,0 +1,49 @@
+파이어베이스
+firebase페이지에 가서 프로젝트를 생성한다.
+키를 발급받고 프로젝트에 저장한다.
+
+파이어베이스를 사용하기위한 라이브러리 설치
+npm install firebase
+
+initializeApp(Key)함수를 통해서 firebase와 연결
+
+로그인 기능 사용하기
+
+getAuth() : 현재 firebase앱과 연결된 인증 객체를 가져오는 함수
+const auth = getAuth(app);
+이렇게 얻어온 객체를 통해서 로그인, 회원가입, 로그아웃등 인증관련 기능을 수행할 수 있다.
+
+signInWithEmailAndPassword(auth,email,password) : 이메일과 비밀번호로 로그인을 시도하는 함수
+인자를 전달만 해주면 검증은 firebase가 알아서 한다.
+
+createUserWithEmailAndPassword(auth,email,password) : 이메일과 비밀번호로 새 계정을 생성하는 함수
+인자로 이메일과 패스워드를 보내면 추가는 firebase가 알아서 해준다.
+
+updateProfile(업데이트할 대상 객체, 업데이트할 내용) : 유저의 프로필을 업데이트하는 함수
+
+스토리지 관련 함수
+스토리지 : firebase에서 제공하는 저장소
+
+getStorage(app) : firebase프로젝트의 Storage객체를 가져오는 함수
+
+ref(스토리지, 경로) : Storage내의 파일 위치를 참조하는 객체를 생성
+이 ref를 통해 파일 업로드, 다운로드, 삭제 등을 할 수 있다.
+
+uploadBytes(ref, 파일) : 스토리지에 파일을 업로드
+
+getDownloadURL() : 파일 다운로드 URL가져오기
+
+메인화면
+대부분의 어플리케이션에서 사용자의 데이터 또는 서비스의 데이터를 이용하려면
+데이터에 접근할 수 있는 유효한 사용자라는것을 증명해야한다.
+
+인증 후에는 서비스를 이용할 수 있는 화면이 렌더링되고,
+로그아웃등으로 인증상태를 해제하면 다시 인증을 위한 화면으로 이동한다.
+
+지금까지 만든 AuthStack네비게이션에서 사용되는 화면들은 인증 이전에 사용되는,
+인증을 위한 화면이된다.
+
+?. : 옵셔널체이닝
+객체의 속성이나 메서드에 접근할 때 값이 null이나 undefined여도 에러가 나지 않고
+undefined를 반환하도록 하는 문법이다.
+
