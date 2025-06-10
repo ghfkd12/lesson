@@ -1,0 +1,18 @@
+인증
+
+인증이 필요없는 화면 
+AuthStack
+
+인증이 필요한 화면
+MainStack
+
+웹
+아이디/비밀번호를 입력해 로그인을 하면 토큰을 발급받는다.
+ㄴ JWT를 이용해서 발급
+
+인증이 필요한 페이지에 접근하려고 하면 요청(request)에 토큰을 같이 실어서 유효함을 인증
+
+firebase의 기능
+SignInWithEmailAndPassword()를 통해서 로그인을 하고 user객체를 돌려받는다.
+
+user객체에 email, uid로그인한 유저를 검증할 수 있는 값을 받을 수 있다.
